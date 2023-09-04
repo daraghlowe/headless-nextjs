@@ -64,7 +64,17 @@ const nextConfig = {
         permanent: false,
         destination: '/foos',
       },
-
+      {
+        source: '/foonoredirect',
+        missing: [
+          {
+            type: 'header',
+            key: 'x-do-not-redirect',
+          },
+        ],
+        permanent: false,
+        destination: '/foos',
+      },
     ]
   },
   // output: 'standalone',
