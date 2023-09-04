@@ -10,7 +10,7 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          ○ (Static) static page foos (no preview mode for static pages)
+          ○ (Static) static page foos new (no preview mode for static pages)
         </h1>
       </main>
     </div>
