@@ -39,6 +39,11 @@ const nextConfig = {
         destination: '/foos',
         permanent: true,
       },
+      {
+        source: '/foo',
+        destination: '/foos',
+        permanent: false,
+      },
     ]
   },
   // output: 'standalone',
