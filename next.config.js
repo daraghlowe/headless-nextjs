@@ -49,6 +49,22 @@ const nextConfig = {
         destination: '/foos/:path*',
         permanent: false
       },
+      {
+        source: '/fooquery',
+        has: [
+          {
+            type: 'query',
+            key: 'page',
+            // the page value will not be available in the
+            // destination since value is provided and doesn't
+            // use a named capture group e.g. (?<page>home)
+            value: 'home',
+          },
+        ],
+        permanent: false,
+        destination: '/foos',
+      },
+
     ]
   },
   // output: 'standalone',
