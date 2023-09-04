@@ -44,6 +44,11 @@ const nextConfig = {
         destination: '/foos',
         permanent: false,
       },
+      {
+        source: '/foopath/:path*',
+        destination: '/foos/:path*',
+        permanent: false
+      },
     ]
   },
   // output: 'standalone',
