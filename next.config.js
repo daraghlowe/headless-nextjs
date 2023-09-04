@@ -75,6 +75,15 @@ const nextConfig = {
         permanent: false,
         destination: '/foos',
       },
+      {
+        source: '/(.*?)',
+        headers: [
+          {
+            key: 'x-using',
+            value: 'faust',
+          },
+        ],
+      },
     ]
   },
   // output: 'standalone',
