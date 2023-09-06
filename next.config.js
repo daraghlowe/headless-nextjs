@@ -2,6 +2,10 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  i18n: {
+    locales: ['en', 'fr', 'de'],
+    defaultLocale: 'en',
+  },
   async rewrites() {
     return {
       beforeFiles: [
@@ -74,6 +78,12 @@ const nextConfig = {
         ],
         permanent: false,
         destination: '/foos',
+      },
+      {
+        source: '/foonolocale',
+        destination: '/foos',
+        permanent: true,
+        locale: false,
       },
     ]
   },
