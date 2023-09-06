@@ -2,10 +2,6 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  i18n: {
-    locales: ['en', 'fr', 'de'],
-    defaultLocale: 'en',
-  },
   async rewrites() {
     return {
       beforeFiles: [
@@ -80,10 +76,16 @@ const nextConfig = {
         destination: '/foos',
       },
       {
-        source: '/foonolocale',
+        source: '/foocookie',
+        has: [
+          {
+            type: 'cookie',
+            key: 'authorized',
+            value: 'true',
+          },
+        ],
+        permanent: false,
         destination: '/foos',
-        permanent: true,
-        locale: false,
       },
     ]
   },
