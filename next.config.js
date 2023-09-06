@@ -2,7 +2,6 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  basePath: '/docs',
   async rewrites() {
     return {
       beforeFiles: [
@@ -11,9 +10,8 @@ const nextConfig = {
         // allows overriding page files
         {
           source: '/before',
-          destination: 'https://test.com/somewhere-else',
+          destination: '/somewhere-else',
           has: [{ type: 'query', key: 'overrideMe' }],
-          basePath: false,
         },
       ],
       afterFiles: [
@@ -21,8 +19,7 @@ const nextConfig = {
         // are checked but before dynamic routes
         {
           source: '/after',
-          destination: 'https://test.com/somewhere-else',
-          basePath: false,
+          destination: '/somewhere-else',
         },
       ],
       fallback: [
@@ -31,7 +28,6 @@ const nextConfig = {
         {
           source: '/fallback/:path*',
           destination: `https://my-old-site.com/:path*`,
-          basePath: false,
         },
       ],
     }
@@ -42,19 +38,16 @@ const nextConfig = {
         source: '/bar',
         destination: '/foos',
         permanent: true,
-        basePath: false,
       },
       {
         source: '/foo',
         destination: '/foos',
         permanent: false,
-        basePath: false,
       },
       {
         source: '/foopath/:path*',
         destination: '/foos/:path*',
         permanent: false,
-        basePath: false,
       },
       {
         source: '/fooquery',
@@ -70,7 +63,6 @@ const nextConfig = {
         ],
         permanent: false,
         destination: '/foos',
-        basePath: false,
       },
       {
         source: '/foonoredirect',
@@ -82,12 +74,6 @@ const nextConfig = {
         ],
         permanent: false,
         destination: '/foos',
-        basePath: false,
-      },
-      {
-        source: '/foobase',
-        destination: '/foos',
-        permanent: false,
       },
     ]
   },
