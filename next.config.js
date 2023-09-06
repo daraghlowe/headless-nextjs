@@ -88,7 +88,6 @@ const nextConfig = {
         source: '/foobase',
         destination: '/foos',
         permanent: false,
-        basePath: true,
       },
     ]
   },
