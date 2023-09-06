@@ -2,6 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  basePath: '/docs',
   async rewrites() {
     return {
       beforeFiles: [
@@ -12,6 +13,7 @@ const nextConfig = {
           source: '/before',
           destination: '/somewhere-else',
           has: [{ type: 'query', key: 'overrideMe' }],
+          basePath: false,
         },
       ],
       afterFiles: [
@@ -20,6 +22,7 @@ const nextConfig = {
         {
           source: '/after',
           destination: '/somewhere-else',
+          basePath: false,
         },
       ],
       fallback: [
@@ -28,6 +31,7 @@ const nextConfig = {
         {
           source: '/fallback/:path*',
           destination: `https://my-old-site.com/:path*`,
+          basePath: false,
         },
       ],
     }
@@ -38,16 +42,19 @@ const nextConfig = {
         source: '/bar',
         destination: '/foos',
         permanent: true,
+        basePath: false,
       },
       {
         source: '/foo',
         destination: '/foos',
         permanent: false,
+        basePath: false,
       },
       {
         source: '/foopath/:path*',
         destination: '/foos/:path*',
-        permanent: false
+        permanent: false,
+        basePath: false,
       },
       {
         source: '/fooquery',
@@ -63,6 +70,7 @@ const nextConfig = {
         ],
         permanent: false,
         destination: '/foos',
+        basePath: false,
       },
       {
         source: '/foonoredirect',
@@ -74,6 +82,13 @@ const nextConfig = {
         ],
         permanent: false,
         destination: '/foos',
+        basePath: false,
+      },
+      {
+        source: '/foobase',
+        destination: '/foos',
+        permanent: false,
+        basePath: true,
       },
     ]
   },
