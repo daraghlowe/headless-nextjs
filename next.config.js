@@ -11,7 +11,7 @@ const nextConfig = {
         // allows overriding page files
         {
           source: '/before',
-          destination: '/somewhere-else',
+          destination: 'https://test.com/somewhere-else',
           has: [{ type: 'query', key: 'overrideMe' }],
           basePath: false,
         },
@@ -21,7 +21,7 @@ const nextConfig = {
         // are checked but before dynamic routes
         {
           source: '/after',
-          destination: '/somewhere-else',
+          destination: 'https://test.com/somewhere-else',
           basePath: false,
         },
       ],
